@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FirmasElectronicasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DetalleOpciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usuario" Type="Int32" />
+    <Property Name="Opciones" Type="Int32" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="Inicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Termino" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Opciones1" Relationship="Self.FK__DetalleOp__Opcio__22AA2996" FromRole="DetalleOpciones" ToRole="Opciones" />
+    <NavigationProperty Name="Usuario1" Relationship="Self.FK__DetalleOp__Usuar__21B6055D" FromRole="DetalleOpciones" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Documento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Token" Type="Int32" />
+    <Property Name="Usuario" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Validador" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="Extension" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="C_Log" Type="DateTime" Precision="3" />
+    <Property Name="Creacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Modificacion" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="DocumentosConsultados" Relationship="Self.FK__Documento__Docum__30F848ED" FromRole="Documento" ToRole="DocumentosConsultados" />
+    <NavigationProperty Name="Token1" Relationship="Self.FK__Documento__Token__2C3393D0" FromRole="Documento" ToRole="Token" />
+    <NavigationProperty Name="Usuario1" Relationship="Self.FK__Documento__Usuar__2D27B809" FromRole="Documento" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="DocumentosConsultados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Documento" Type="Int32" />
+    <Property Name="Consultante" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="C_Log" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Documento1" Relationship="Self.FK__Documento__Docum__30F848ED" FromRole="DocumentosConsultados" ToRole="Documento" />
+  </EntityType>
+  <EntityType Name="DocumentosPermitidos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Asignacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Usuario" Type="Int32" />
+    <Property Name="Bloqueo" Type="DateTime" Precision="0" />
+    <Property Name="Estado" Type="Boolean" />
+    <NavigationProperty Name="Usuario1" Relationship="Self.FK__Documento__Usuar__1BFD2C07" FromRole="DocumentosPermitidos" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rut" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Documento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__Empresa__15502E78" FromRole="Empresa" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Opciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Icono" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="Prioridad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cabecera" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DetalleOpciones" Relationship="Self.FK__DetalleOp__Opcio__22AA2996" FromRole="Opciones" ToRole="DetalleOpciones" />
+  </EntityType>
+  <EntityType Name="TipoDocumento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Extension" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Token1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Clave" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Inicio" Type="DateTime" Precision="0" />
+    <Property Name="Termino" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Documento" Relationship="Self.FK__Documento__Token__2C3393D0" FromRole="Token" ToRole="Documento" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa" Type="Int32" />
+    <Property Name="Rut" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="90" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tipo" Type="Boolean" />
+    <Property Name="Clave" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <NavigationProperty Name="DetalleOpciones" Relationship="Self.FK__DetalleOp__Usuar__21B6055D" FromRole="Usuario" ToRole="DetalleOpciones" />
+    <NavigationProperty Name="Documento" Relationship="Self.FK__Documento__Usuar__2D27B809" FromRole="Usuario" ToRole="Documento" />
+    <NavigationProperty Name="DocumentosPermitidos" Relationship="Self.FK__Documento__Usuar__1BFD2C07" FromRole="Usuario" ToRole="DocumentosPermitidos" />
+    <NavigationProperty Name="Empresa1" Relationship="Self.FK__Usuario__Empresa__15502E78" FromRole="Usuario" ToRole="Empresa" />
+  </EntityType>
+  <Association Name="FK__DetalleOp__Opcio__22AA2996">
+    <End Role="Opciones" Type="Self.Opciones" Multiplicity="0..1" />
+    <End Role="DetalleOpciones" Type="Self.DetalleOpciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DetalleOpciones">
+        <PropertyRef Name="Opciones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetalleOp__Usuar__21B6055D">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="DetalleOpciones" Type="Self.DetalleOpciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DetalleOpciones">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Documento__Docum__30F848ED">
+    <End Role="Documento" Type="Self.Documento" Multiplicity="0..1" />
+    <End Role="DocumentosConsultados" Type="Self.DocumentosConsultados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DocumentosConsultados">
+        <PropertyRef Name="Documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Documento__Token__2C3393D0">
+    <End Role="Token" Type="Self.Token" Multiplicity="0..1" />
+    <End Role="Documento" Type="Self.Documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Token">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Documento">
+        <PropertyRef Name="Token" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Documento__Usuar__2D27B809">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Documento" Type="Self.Documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Documento">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Documento__Usuar__1BFD2C07">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="DocumentosPermitidos" Type="Self.DocumentosPermitidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DocumentosPermitidos">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__Empresa__15502E78">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FirmasElectronicasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DetalleOpciones" EntityType="Self.DetalleOpciones" />
+    <EntitySet Name="Documento" EntityType="Self.Documento" />
+    <EntitySet Name="DocumentosConsultados" EntityType="Self.DocumentosConsultados" />
+    <EntitySet Name="DocumentosPermitidos" EntityType="Self.DocumentosPermitidos" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+    <EntitySet Name="Opciones" EntityType="Self.Opciones" />
+    <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" />
+    <EntitySet Name="Token" EntityType="Self.Token" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK__DetalleOp__Opcio__22AA2996" Association="Self.FK__DetalleOp__Opcio__22AA2996">
+      <End Role="Opciones" EntitySet="Opciones" />
+      <End Role="DetalleOpciones" EntitySet="DetalleOpciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetalleOp__Usuar__21B6055D" Association="Self.FK__DetalleOp__Usuar__21B6055D">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="DetalleOpciones" EntitySet="DetalleOpciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Documento__Docum__30F848ED" Association="Self.FK__Documento__Docum__30F848ED">
+      <End Role="Documento" EntitySet="Documento" />
+      <End Role="DocumentosConsultados" EntitySet="DocumentosConsultados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Documento__Token__2C3393D0" Association="Self.FK__Documento__Token__2C3393D0">
+      <End Role="Token" EntitySet="Token" />
+      <End Role="Documento" EntitySet="Documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Documento__Usuar__2D27B809" Association="Self.FK__Documento__Usuar__2D27B809">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Documento" EntitySet="Documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Documento__Usuar__1BFD2C07" Association="Self.FK__Documento__Usuar__1BFD2C07">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="DocumentosPermitidos" EntitySet="DocumentosPermitidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__Empresa__15502E78" Association="Self.FK__Usuario__Empresa__15502E78">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

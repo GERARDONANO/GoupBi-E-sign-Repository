@@ -1,0 +1,52 @@
+﻿@model IEnumerable<e_sign.Models.Empresa>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GroupBi e-Sign</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <div id="contenedor">
+        <header>
+            <aside>
+                <h2>Autenticacion</h2>
+                <br>
+                <form class="form_reg" action="">
+                    <h3>Usuario</h3>
+                    <input id="txtbox" class="input" type="text" placeholder="&#128100;
+                    Correo Electrónico" required autofocus>
+
+                    <h3>Contraseña</h3>
+                    <input id="txtbox" class="input" type="text" placeholder="&#128274;
+                    Contraseña" required autofocus>
+                    <div>
+                        <label>
+                            <input class="input" type="checkbox">
+                            mantener sesion activada
+                        </label>
+
+                    </div>
+
+
+                    <input id="btn" class="btn__sumit" type="button" value="Iniciar">
+                    <a href="recovery.html"><h5>Olvidó su Contraseña?</h5> </a>
+                    <a href="register.html"><input id="btn" class="btn__sumit" type="button" value="Registrarse"></a>
+               
+                </form>
+            </aside>
+        </header>
+       
+</body>
+</html>

@@ -1,0 +1,111 @@
+﻿ <!DOCTYPE html>
+ <html>
+ <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <meta charset="utf-8" />
+     <title>Mi aplicación ASP.NET</title>
+     @Styles.Render("~/Content/css")
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+         body {
+             margin: 0;
+             padding: 0;
+             overflow: hidden;
+             background: #c1c4c7;
+         }
+
+         main {
+             width: 99.5%;
+             height: 100%;
+             display: flex;
+             align-content: flex-start;
+         }
+
+         .info {
+            
+             width: 70%;
+             height: 100%;
+             padding-top: 50px;
+             padding-left: 40px;
+             padding-right: 50px;
+         }
+
+         .forms {
+             width: 30%;
+             height: 632px;
+             margin-left:150px;
+
+         }
+
+         h1 {
+             font-size: 52px;
+             font-weight: bold;
+             margin-left: 20px;
+             margin-bottom: 20px;
+         }
+
+         .info p {
+             font-size: 20px;
+             margin-left: 40px;
+             height:473px;
+         }
+
+         #txtbox {
+             width: 290px;
+             margin: auto;
+             margin-top: -10px;
+             padding: 10px 20px;
+             box-sizing: border-box;
+         }
+
+         #btnEnv {
+             width: 100px;
+            margin-left:180px;
+             padding: 10px;
+             box-sizing: border-box;
+         }
+
+         #btnAdj {
+             width: 80px;
+             
+             margin-top:0px;
+             padding: 10px;
+             box-sizing: border-box;
+         }
+         #dctorepresentante {
+             margin-top:15px;
+         }
+
+         #btn {
+             width: 250px;
+             margin: auto;
+             margin-top: 20px;
+             padding: 10PX 20PX;    
+             box-sizing: border-box;
+         }
+     </style>
+    
+ </head>
+ <body>
+     <main>
+         <section class="info">
+             <h1>GrouBI e-Sign</h1>
+             <p>
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 In eget facilisis mauris. Donec pretium egestas tellus nec sagittis.
+                 Nullam posuere lorem eget aliquam pellentesque. Sed vel placerat risus.
+                 Maecenas at felis eu orci laoreet faucibus.
+                 Sed ut velit sed turpis tempus malesuada.
+                 Curabitur auctor ipsum ut erat aliquet, vitae cursus magna auctor.
+                 Nullam tempus volutpat massa eu ultricies.
+                 Vivamus in eleifend diam, ac finibus tortor.
+                 Class aptent taciti sociosqu ad .
+             </p>
+         </section>
+         <section class="forms">
+             @RenderBody()
+         </section>
+     </main>
+     @RenderSection("scripts", required: false)
+ </body>
+ </html>

@@ -1,0 +1,58 @@
+﻿@model e_sign.Models.Empresa
+
+@{
+    /**/
+
+    ViewBag.Title = "Registrarse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+<h2>@ViewBag.Title</h2>
+<body>
+    <div id="contenedor">
+        <header>
+
+            <form class="form_reg" action="">
+                <h3>Rut Empresa</h3>
+                <input id="txtbox" class="input" type="text" placeholder="&#128100;
+                    12.345.678-9" required autofocus>
+
+                <h3>Razon social</h3>
+                <input id="txtbox" class="input" type="text" placeholder="&#128100;
+                    Nombre de la empresa" required autofocus>
+
+                <h3>Rut responsable</h3>
+                <input id="txtbox" class="input" type="text" placeholder="&#128100;
+                    12.345.678-9" required autofocus>
+
+                <h3>E-Mail</h3>
+                <input id="txtbox" class="input" type="text" placeholder="&#128100;
+                    Correo electronico" required autofocus>
+
+                <h3>Clave de acceso</h3>
+                <input id="txtbox" class="input" type="text" placeholder="&#128274;
+                    **************" required autofocus>
+
+                <div id="dctorepresentante">
+                    <label>Documento representante (opcional)</label>
+                    <input id="btnAdj" class="btn__sumit" type="file" placeholder="Adjuntar">
+                </div>
+
+                <div>
+                    <input id="btnEnv" class="btn__sumit" type="button" value="Registrar">
+
+                </div>
+            </form>
+
+        </header>
+
+
+
+    </div>
+</body>
+
